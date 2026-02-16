@@ -1,36 +1,38 @@
-import React, { useState } from 'react'
-import { useTodo } from '../contexts';
+import React, { useState } from "react";
+import { useTodo } from "../contexts";
 
 function TodoForm() {
-    const [todo ,setTodo] = useState("")
-    const {addTodo} = useTodo()
+    const [todo, setTodo] = useState("");
+    const { addTodo } = useTodo();
 
-    const add = (e) => {
-    e.preventDefault()
+const add = (e) => {
+    e.preventDefault();
+    if (!todo.trim()) return;
 
-    if (!todo) return
-
-    addTodo({todo, completed: false})
-    setTodo("")
-    }
+    addTodo({ todo: todo.trim(), completed: false });
+    setTodo("");
+};
 
     return (
-        <form onSubmit={add} className="flex">
-            <input
-                type="text"
-                placeholder="Write Todo..."
-                className="w-full border border-black/10 
-                rounded-l-lg px-3 outline-none 
-                duration-150 bg-white/20 py-1.5"
-                value={todo}
-                onChange={(e) => setTodo(e.target.value)}
-            />
-            <button type="submit" className="rounded-r-lg px-3 py-1 bg-green-600 text-white shrink-0">
-                Add
-            </button>
-        </form>
-    );
+    <form onSubmit={add} className="flex gap-2">
+    <input
+        type="text"
+        placeholder="Write a new todo..."
+        className="w-full px-4 py-3 rounded-xl bg-white/10 text-white placeholder:text-white/40
+        border border-white/10 outline-none focus:border-white/30 transition"
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+    />
+
+    <button
+        type="submit"
+        className="px-5 py-3 rounded-xl font-semibold text-sm text-white
+        bg-emerald-600 hover:bg-emerald-500 active:scale-[0.98] transition"
+    >
+        Add
+    </button>
+    </form>
+);
 }
 
 export default TodoForm;
-
