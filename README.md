@@ -13,6 +13,12 @@ https://manavv09.github.io/TODO-List/
 - LocalStorage Support
 - Clean UI (Tailwind CSS)
 
+## 📸 Screenshot
+
+![Todo App](./screenshots/Demo.png)
+
+
+
 ## 🛠️ Tech Stack
 - React
 - Tailwind CSS
